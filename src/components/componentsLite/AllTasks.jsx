@@ -160,7 +160,11 @@ const AllTasks = () => {
             strokeWidth={1.8}
           >
             <circle cx="11" cy="11" r="7" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="m20 20-4-4" />
+            <path
+              strokeLinecapgit="round"
+              strokeLinejoin="round"
+              d="m20 20-4-4"
+            />
           </svg>
 
           <input

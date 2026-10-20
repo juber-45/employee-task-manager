@@ -228,7 +228,7 @@ const AllTask = () => {
           </div>
         ) : (
           <div className="w-full overflow-x-auto">
-            <table className="w-full min-w-[760px] border-collapse text-left">
+            <table className="w-full min-w-190 border-collapse text-left">
               <thead>
                 <tr className="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-500">
                   <th className="px-4 py-3.5 sm:px-5">Employee</th>
