@@ -9,6 +9,7 @@ const CreateTask = () => {
   const [taskDate, setTaskDate] = useState("");
   const [assignTo, setAssignTo] = useState("");
   const [category, setCategory] = useState("");
+
   const [priority, setPriority] = useState("Medium");
 
   const submitHandler = (e) => {
@@ -20,7 +21,7 @@ const CreateTask = () => {
       taskDesc,
       taskDate,
       category,
-      priority: "Medium",
+      priority,
       active: false,
       newTask: true,
       failed: false,
@@ -48,6 +49,7 @@ const CreateTask = () => {
     setTaskDate("");
     setAssignTo("");
     setTaskDesc("");
+    setPriority("Medium");
   };
 
   return (
@@ -109,9 +111,9 @@ const CreateTask = () => {
                 onChange={(e) => setPriority(e.target.value)}
                 className="w-full min-w-0 cursor-pointer rounded-xl border border-slate-200 bg-slate-50 px-3 py-3 text-sm text-slate-700 outline-none transition focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10"
               >
-                <option value="High">High</option>
-                <option value="Medium">Medium</option>
                 <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
               </select>
             </div>
           </div>
