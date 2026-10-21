@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { useContext, useEffect, useState } from "react";
 
 import Login from "./components/Auth/Login";
@@ -27,9 +28,7 @@ const App = () => {
   const handleLogin = (email, password) => {
     if (
       userData &&
-      userData?.admin?.find(
-        (e) => e.email === email && e.password === password
-      )
+      userData?.admin?.find((e) => e.email === email && e.password === password)
     ) {
       setUser("admin");
 
@@ -37,11 +36,11 @@ const App = () => {
         "loggedInUser",
         JSON.stringify({
           role: "admin",
-        })
+        }),
       );
     } else if (userData?.employees) {
       const employee = userData.employees.find(
-        (e) => e.email === email && password === e.password
+        (e) => e.email === email && password === e.password,
       );
 
       if (employee) {
@@ -53,7 +52,7 @@ const App = () => {
           JSON.stringify({
             role: "employee",
             data: employee,
-          })
+          }),
         );
       } else {
         alert("Invalid Credentials");
@@ -64,7 +63,7 @@ const App = () => {
   useEffect(() => {
     if (user === "employee" && loggedInUserData && userData?.employees) {
       const updatedEmployee = userData.employees.find(
-        (employee) => employee.id === loggedInUserData.id
+        (employee) => employee.id === loggedInUserData.id,
       );
 
       if (updatedEmployee) {
@@ -80,11 +79,10 @@ const App = () => {
       ) : user === "admin" ? (
         <AdminDashboard changeUser={setUser} data={userData} />
       ) : (
-        <EmployeeDashboard
-          changeUser={setUser}
-          data={loggedInUserData}
-        />
+        <EmployeeDashboard changeUser={setUser} data={loggedInUserData} />
       )}
+
+      <Analytics />
     </>
   );
 };
